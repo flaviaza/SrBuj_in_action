@@ -1,17 +1,23 @@
-%h1 Listing lists
+.content
+  .row
+    .span3
+      %ul.main-menu.nav.nav-list.affix-top{ data: { spy: 'affix', offset_top: '100' } }
+        %li
+          = link_to 'Modal', nil
+    .span9#main-content
+      %h3 Content here
+      %table
+        %tr
+          %th
+          %th
+          %th
 
-%table
-  %tr
-    %th
-    %th
-    %th
+        - @lists.each do |list|
+          %tr
+            %td= link_to 'Show', list
+            %td= link_to 'Edit', edit_list_path(list)
+            %td= link_to 'Destroy', list, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-  - @lists.each do |list|
-    %tr
-      %td= link_to 'Show', list
-      %td= link_to 'Edit', edit_list_path(list)
-      %td= link_to 'Destroy', list, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %br
 
-%br
-
-= link_to 'New List', new_list_path
+      = link_to 'New List', new_list_path

@@ -1,0 +1,16 @@
+!!!5
+%html
+  %head
+    %title SrBuj In Action
+    = stylesheet_link_tag    "application", media: :all
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  %body
+    %header.navbar.navbar-inverse
+      .navbar-inner
+        .container
+          %ul.nav
+            %li
+              .brand
+                SrBuj In Action
+    = yield
